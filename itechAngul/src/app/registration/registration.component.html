@@ -1,0 +1,12 @@
+<h1>Регистраця</h1>
+<div>
+  <input #login placeholder="Логин" />
+  <input #password placeholder="Пароль" />
+</div>
+<button class="btn btn-default" (click)="addUser(login.value, password.value)">
+  Добавить
+</button>
+
+<tr *ngFor="let user of users">
+  <td>{{ user.login }}</td>
+</tr>

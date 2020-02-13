@@ -1,0 +1,10 @@
+<h1>Вход</h1>
+<div>
+  <input #login placeholder="Логин" />
+  <input #password placeholder="Пароль" />
+</div>
+<button class="btn btn-default" (click)="logUser(login.value, password.value)">
+  Вход
+</button>
+<a>{{ vrong }}</a>
+<a *ngIf="vrong">Не верные данные</a>
