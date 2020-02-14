@@ -8,3 +8,6 @@
 </button>
 <a>{{ vrong }}</a>
 <a *ngIf="vrong">Не верные данные</a>
+<tr *ngFor="let user of users">
+  <td>{{ user.login }}</td>
+</tr>

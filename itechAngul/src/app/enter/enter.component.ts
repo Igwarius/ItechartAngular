@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { User } from "src/app/user";
 @Component({
   selector: "app-enter",
@@ -6,7 +6,7 @@ import { User } from "src/app/user";
   styleUrls: ["./enter.component.css"]
 })
 export class EnterComponent implements OnInit {
-  users: User[] = [];
+  @Input() users: User[];
   vrong: boolean;
   logUser(login: string, password: string): void {
     this.users.forEach(element => {

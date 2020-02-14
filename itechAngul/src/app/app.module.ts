@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistrationComponent } from "./registration/registration.component";
 import { EnterComponent } from "./enter/enter.component";
 
@@ -13,7 +13,13 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   declarations: [AppComponent, RegistrationComponent, EnterComponent],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
+  ],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
