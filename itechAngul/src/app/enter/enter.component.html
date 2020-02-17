@@ -1,13 +1,34 @@
 <h1>Вход</h1>
 <div>
-  <input #login placeholder="Логин" />
-  <input #password placeholder="Пароль" />
+  <form class="login-form" [formGroup]="form">
+    <input placeholder="Логин" name="Login" formControlName="Login" />
+
+    <div
+      class="alert alert-danger"
+      *ngIf="form.controls['Login'].invalid && form.controls['Login'].touched"
+    >
+      Требуется логин
+    </div>
+    <input
+      placeholder="Пароль"
+      name="password"
+      formControlName="password"
+      type="password"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="
+        form.controls['password'].invalid && form.controls['password'].touched
+      "
+    >
+      Требуется пароль
+    </div>
+    <button
+      class="btn btn-default"
+      (click)="logUser()"
+      [disabled]="form.invalid"
+    >
+      Вход
+    </button>
+  </form>
 </div>
-<button class="btn btn-default" (click)="logUser(login.value, password.value)">
-  Вход
-</button>
-<a>{{ vrong }}</a>
-<a *ngIf="vrong">Не верные данные</a>
-<tr *ngFor="let user of users">
-  <td>{{ user.login }}</td>
-</tr>

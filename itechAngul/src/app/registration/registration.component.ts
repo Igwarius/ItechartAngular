@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "src/app/user";
 import { Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
 import {
   FormControl,
   FormGroup,
@@ -18,8 +19,15 @@ export class RegistrationComponent implements OnInit {
   addUser(): void {
     const user = <User>this.form.value;
     this.users.push(user);
+    this.http
+      .post("https://localhost:44333/api/User/AddUser", user)
+      .subscribe();
   }
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.form = this.fb.group({

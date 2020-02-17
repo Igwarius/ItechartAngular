@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistrationComponent } from "./registration/registration.component";
 import { EnterComponent } from "./enter/enter.component";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 const appRoutes: Routes = [
   { path: "registration", component: RegistrationComponent },
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, RegistrationComponent, EnterComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
