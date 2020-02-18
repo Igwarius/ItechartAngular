@@ -3,6 +3,7 @@ import { User } from "src/app/user";
 import { HttpClient } from "@angular/common/http";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { flatten } from "@angular/compiler";
 
 @Component({
   selector: "app-enter",
@@ -12,16 +13,29 @@ import { Router } from "@angular/router";
 export class EnterComponent implements OnInit {
   form: FormGroup;
   user: User;
+  errorchk: boolean = false;
+
   processUser(user): void {
     this.user = user;
     localStorage.setItem("token", JSON.stringify(this.user.token));
+    this.errorchk = false;
   }
+  ErrorChech(): void {
+    this.errorchk = true;
+  }
+  Navigate(): void {
+    if (this.errorchk == false) {
+      this.router.navigate(["/"]);
+    }
+  }
+
   logUser(): void {
     const user = <User>this.form.value;
-    this.http
-      .post("https://localhost:44333/api/User/SignIn", user)
-      .subscribe(result => this.processUser(this.user));
-    this.router.navigate(["/"]);
+    this.http.post("https://localhost:44333/api/User/SignIn", user).subscribe(
+      result => this.processUser(user),
+      error => this.ErrorChech(),
+      () => this.Navigate()
+    );
   }
 
   constructor(private http: HttpClient, private router: Router) {}

@@ -23,6 +23,10 @@
     >
       Требуется пароль
     </div>
+
+    <div *ngIf="errorchk">
+      Неверые данные
+    </div>
     <button
       class="btn btn-default"
       (click)="logUser()"
