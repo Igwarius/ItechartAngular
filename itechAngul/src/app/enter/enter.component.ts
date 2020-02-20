@@ -25,7 +25,7 @@ export class EnterComponent implements OnInit {
   }
   Navigate(): void {
     if (this.errorchk == false) {
-      this.router.navigate(["/"]);
+      this.router.navigate(["/news"]);
     }
   }
 
