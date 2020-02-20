@@ -1,0 +1,9 @@
+<div class="product">
+  <div class="container">
+    <form [formGroup]="form">
+      <div class="form-group row">
+        <app-upload-foto [fileUrl]="form.get('imageUrl')"></app-upload-foto>
+      </div>
+    </form>
+  </div>
+</div>
