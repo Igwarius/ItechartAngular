@@ -47,6 +47,7 @@ export class UploadFotoComponent implements OnInit {
 
     this.uploader.onBuildItemForm = (fileItem: any, form: FormData) => {
       form.append("upload_preset", this.cloudinary.config().upload_preset);
+
       fileItem.withCredentials = false;
       return { fileItem, form };
     };
@@ -60,8 +61,10 @@ export class UploadFotoComponent implements OnInit {
       this.fileUrl.setValue(JSON.parse(response).url);
       if (this.urlChange) {
         this.urlChange.emit(this.fileUrl.value);
+        console.log(response);
+
+        debugger;
       }
-      console.log(this.fileUrl);
     };
   }
 }

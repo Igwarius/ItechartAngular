@@ -49,7 +49,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     CloudinaryModule.forRoot(Cloudinary, {
-      cloud_name: "dmk0cb1qj"
+      cloud_name: "dmk0cb1qj",
+      upload_preset: "nc0gqqok"
     }),
     ReactiveFormsModule,
 
