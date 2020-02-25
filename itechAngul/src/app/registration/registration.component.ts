@@ -16,12 +16,22 @@ import {
 export class RegistrationComponent implements OnInit {
   public users: User[] = [];
   form: FormGroup;
+  errorchk: boolean = false;
   addUser(): void {
     const user = <User>this.form.value;
-    this.users.push(user);
-    this.http
-      .post("https://localhost:44333/api/User/AddUser", user)
-      .subscribe();
+
+    this.http.post("https://localhost:44333/api/User/AddUser", user).subscribe(
+      result => this.Navigate(),
+      error => this.ErrorChech()
+    );
+  }
+  ErrorChech(): void {
+    this.errorchk = true;
+  }
+  Navigate(): void {
+    if (this.errorchk == false) {
+      this.router.navigate(["/login"]);
+    }
   }
   constructor(
     private fb: FormBuilder,

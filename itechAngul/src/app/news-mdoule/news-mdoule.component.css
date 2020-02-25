@@ -1,0 +1,16 @@
+div {
+  border-style: solid;
+  height: 380px;
+  width: 380px;
+  word-wrap: break-word;
+}
+h2 {
+  margin: 5px;
+  text-align: center;
+}
+.imagec {
+  height: 1000px;
+}
+p {
+  margin: 5px;
+}

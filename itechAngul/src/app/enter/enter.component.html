@@ -1,38 +1,49 @@
 <h1>Вход</h1>
 <div>
   <form class="login-form" [formGroup]="form">
-    <input placeholder="Логин" name="Login" formControlName="Login" />
+    <div class="box">
+      <div>
+        <input placeholder="Логин" name="Login" formControlName="Login" />
 
-    <div
-      class="alert alert-danger"
-      *ngIf="form.controls['Login'].invalid && form.controls['Login'].touched"
-    >
-      Требуется логин
-    </div>
-    <input
-      placeholder="Пароль"
-      name="password"
-      formControlName="password"
-      type="password"
-    />
-    <div
-      class="alert alert-danger"
-      *ngIf="
-        form.controls['password'].invalid && form.controls['password'].touched
-      "
-    >
-      Требуется пароль
-    </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            form.controls['Login'].invalid && form.controls['Login'].touched
+          "
+        >
+          Требуется логин
+        </div>
+      </div>
+      <div>
+        <input
+          placeholder="Пароль"
+          name="password"
+          formControlName="password"
+          type="password"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            form.controls['password'].invalid &&
+            form.controls['password'].touched
+          "
+        >
+          Требуется пароль
+        </div>
 
-    <div *ngIf="errorchk">
-      Неверые данные
+        <div *ngIf="errorchk">
+          Неверые данные
+        </div>
+      </div>
+      <div>
+        <button
+          class="btn btn-default"
+          (click)="logUser()"
+          [disabled]="form.invalid"
+        >
+          Вход
+        </button>
+      </div>
     </div>
-    <button
-      class="btn btn-default"
-      (click)="logUser()"
-      [disabled]="form.invalid"
-    >
-      Вход
-    </button>
   </form>
 </div>

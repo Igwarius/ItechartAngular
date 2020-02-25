@@ -25,7 +25,7 @@ export class UploadFotoComponent implements OnInit {
   ngOnInit() {
     if (!this.fileUrl.value) {
       this.fileUrl.setValue(
-        "https://res.cloudinary.com/dmk0cb1qj/image/upload/v1582119575/sin.jpg"
+        "https://res.cloudinary.com/dmk0cb1qj/image/upload/v1582119575/uig51ogcbgugn0i347p5.jpg"
       );
     }
     const uploaderOptions: FileUploaderOptions = {

@@ -1,9 +1,31 @@
 <div class="product">
   <div class="container">
     <form [formGroup]="form">
-      <div class="form-group row">
-        <app-upload-foto [fileUrl]="form.get('imageUrl')"></app-upload-foto>
+      <input class="name" formControlName="name" placeholder="Заголовок" />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+      >
+        Требуется Заголовок
       </div>
+      <input class="text" formControlName="text" placeholder="Основной текст" />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['text'].invalid && form.controls['text'].touched"
+      >
+        Требуется содержание
+      </div>
+      <div class="form-group row">
+        <app-upload-foto [fileUrl]="form.get('image')"></app-upload-foto>
+      </div>
+      <button
+        type="submit"
+        class="create-product"
+        (click)="createNews()"
+        [disabled]="form.invalid"
+      >
+        Add
+      </button>
     </form>
   </div>
 </div>
