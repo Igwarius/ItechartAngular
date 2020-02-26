@@ -4,6 +4,7 @@ export class News {
     public name: string,
     public image: string,
     public text: string,
-    public viewers: number
+    public viewers: number,
+    public categoryID: number
   ) {}
 }

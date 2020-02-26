@@ -10,4 +10,7 @@ export class NewsMdouleComponent implements OnInit {
   @Input() news: News;
 
   ngOnInit(): void {}
+  onSelect(newss: News): void {
+    console.log(newss.id);
+  }
 }

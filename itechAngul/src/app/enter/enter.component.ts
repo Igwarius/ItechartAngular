@@ -3,7 +3,7 @@ import { User } from "src/app/user";
 import { HttpClient } from "@angular/common/http";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { flatten } from "@angular/compiler";
+import { flatten, analyzeAndValidateNgModules } from "@angular/compiler";
 import { Token } from "src/app/token";
 @Component({
   selector: "app-enter",
@@ -37,8 +37,11 @@ export class EnterComponent implements OnInit {
 
   logUser(): void {
     const user = <User>this.form.value;
+
     this.http.post("https://localhost:44333/api/User/SignIn", user).subscribe(
-      result => this.processUser(user),
+      result => {
+        localStorage.setItem("token", JSON.stringify(result));
+      },
       error => this.ErrorChech(),
       () => this.Navigate()
     );
