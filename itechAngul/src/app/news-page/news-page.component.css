@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+.category {
+  margin: 0px;
+  background-color: blue;
+}
+.newscont {
+  display: flex;
+  flex-wrap: nowrap;
+}
