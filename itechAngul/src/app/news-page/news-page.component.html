@@ -3,6 +3,11 @@
     <h2 (click)="onSelect(catigori)">{{ catigori.name }}</h2>
   </div>
 </div>
+<div hidden="{{ showSubCatgory }}" class="newscont">
+  <div class="category" *ngFor="let subcatigori of subCatigori">
+    <h2 (click)="onSubSelect(subcatigori)">{{ subcatigori.name }}</h2>
+  </div>
+</div>
 <h1>{{ header }}</h1>
 
 <div class="newscont">

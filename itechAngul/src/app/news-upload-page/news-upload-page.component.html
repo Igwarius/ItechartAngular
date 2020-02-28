@@ -18,10 +18,12 @@
       <div class="form-group row">
         <app-upload-foto [fileUrl]="form.get('image')"></app-upload-foto>
       </div>
-      <select formControlName="categoryID" ng-model="selectedCatrgory">
-        <option *ngFor="let catigori of catigories" [ngValue]="catigori.id">{{
-          catigori.name
-        }}</option>
+      <select formControlName="subcategoryid" ng-model="selectedCatrgory">
+        <option
+          *ngFor="let subcatigori of subcatigories"
+          [ngValue]="subcatigori.id"
+          >{{ subcatigori.name }}</option
+        >
       </select>
       <button
         type="submit"

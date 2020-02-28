@@ -61,9 +61,6 @@ export class UploadFotoComponent implements OnInit {
       this.fileUrl.setValue(JSON.parse(response).url);
       if (this.urlChange) {
         this.urlChange.emit(this.fileUrl.value);
-        console.log(response);
-
-        debugger;
       }
     };
   }
