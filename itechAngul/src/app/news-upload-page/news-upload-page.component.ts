@@ -5,6 +5,7 @@ import { News } from "src/app/Models/news";
 import { Catigories } from "src/app/Models/categories";
 import { SubCatigories } from "src/app/Models/subCatigories";
 import { ActivatedRoute } from "@angular/router";
+import { httpUrls } from "src/app/Constants/Urls";
 @Component({
   selector: "app-news-upload-page",
   templateUrl: "./news-upload-page.component.html",
@@ -25,11 +26,9 @@ export class NewsUploadPageComponent implements OnInit {
       subcategoryid: new FormControl(0)
     });
 
-    this.http
-      .get("https://localhost:44333/api/News/GetAllSubCategories")
-      .subscribe(result => {
-        this.subcatigories = <SubCatigories>result;
-      });
+    this.http.get(httpUrls.SubCategory).subscribe(result => {
+      this.subcatigories = <SubCatigories>result;
+    });
   }
   createNews() {
     const news = <News>this.form.value;
@@ -37,8 +36,6 @@ export class NewsUploadPageComponent implements OnInit {
     news.viewers = 1;
     console.log(news);
     debugger;
-    this.http
-      .post("https://localhost:44333/api/News/AddNews", news)
-      .subscribe();
+    this.http.post(httpUrls.AddNews, news).subscribe();
   }
 }

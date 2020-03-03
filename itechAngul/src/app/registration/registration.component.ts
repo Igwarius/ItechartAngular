@@ -8,6 +8,7 @@ import {
   Validators,
   FormBuilder
 } from "@angular/forms";
+import { httpUrls } from "../Constants/Urls";
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
@@ -20,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   addUser(): void {
     const user = <User>this.form.value;
 
-    this.http.post("https://localhost:44333/api/User/AddUser", user).subscribe(
+    this.http.post(httpUrls.AddUser, user).subscribe(
       result => this.Navigate(),
       error => this.ErrorChech()
     );

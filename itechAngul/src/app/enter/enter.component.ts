@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { flatten, analyzeAndValidateNgModules } from "@angular/compiler";
 import { Token } from "src/app/token";
+import { httpUrls } from "src/app/Constants/Urls";
 @Component({
   selector: "app-enter",
   templateUrl: "./enter.component.html",
@@ -38,7 +39,7 @@ export class EnterComponent implements OnInit {
   logUser(): void {
     const user = <User>this.form.value;
 
-    this.http.post("https://localhost:44333/api/User/SignIn", user).subscribe(
+    this.http.post(httpUrls.Login, user).subscribe(
       result => {
         localStorage.setItem("token", JSON.stringify(result));
       },
