@@ -3,9 +3,13 @@ h1 {
 }
 .category {
   margin: 0px;
-  background-color: blue;
+  background-color: burlywood;
 }
 .newscont {
   display: flex;
   flex-wrap: nowrap;
+}
+.sortContainer {
+  display: block; /* смещает только блоки */
+  margin-left: auto;
 }

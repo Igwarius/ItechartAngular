@@ -46,6 +46,25 @@ export class NewsPageComponent implements OnInit {
         this.spinner.hide();
       });
   }
+  onSortDate(): void {
+    this.spinner.show();
+    this.http
+      .get("https://localhost:44333/api/News/GetSortNews/date")
+      .subscribe(result => {
+        this.newss = <News>result;
+        this.spinner.hide();
+      });
+  }
+  onSortView(): void {
+    this.spinner.show();
+    this.http
+      .get("https://localhost:44333/api/News/GetSortNews/view")
+      .subscribe(result => {
+        this.newss = <News>result;
+        this.spinner.hide();
+      });
+  }
+
   onSelect(categori: Catigories): void {
     console.log(categori.id);
     this.spinner.show();
