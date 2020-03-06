@@ -1,7 +1,7 @@
 export class User {
   constructor(
-    public Login: string,
+    public login: string,
     public password: string,
-    public RefreshToken: string
+    public refreshToken: string
   ) {}
 }

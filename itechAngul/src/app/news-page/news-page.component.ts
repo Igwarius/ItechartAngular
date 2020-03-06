@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { News } from "src/app/Models/news";
 import { HttpClient } from "@angular/common/http";
 import { NgxSpinnerService } from "ngx-spinner";
-import { Catigories } from "../Models/categories";
+import { Categories } from "../Models/categories";
 import { SubCatigories } from "src/app/Models/subCatigories";
 import { httpUrls } from "src/app/Constants/Urls";
 @Component({
@@ -15,25 +15,25 @@ export class NewsPageComponent implements OnInit {
   showSubCatgory: boolean;
   subCatigori: SubCatigories;
   newss: News;
-  catigories: Catigories;
+  catigories: Categories;
   title = "itechAngul";
   constructor(private http: HttpClient, private spinner: NgxSpinnerService) {}
   ngOnInit() {
     this.showSubCatgory = false;
     this.header = "Новости";
     this.spinner.show();
-    this.http.get(httpUrls.AllNews).subscribe(result => {
+    this.http.get(httpUrls.ALLNEWS_CONST).subscribe(result => {
       this.newss = <News>result;
       this.spinner.hide();
     });
-    this.http.get(httpUrls.AllCategories).subscribe(result => {
-      this.catigories = <Catigories>result;
+    this.http.get(httpUrls.ALLCATEGORIES_CONST).subscribe(result => {
+      this.catigories = <Categories>result;
     });
   }
   onSubSelect(subCatigori: SubCatigories): void {
     this.spinner.show();
     this.http
-      .get(httpUrls.NewsBySubCategory + subCatigori.id)
+      .get(httpUrls.NEWSBYSUBCATEGORY_CONST + subCatigori.id)
       .subscribe(result => {
         this.newss = <News>result;
         this.header = subCatigori.name;
@@ -42,29 +42,31 @@ export class NewsPageComponent implements OnInit {
   }
   onSortDate(): void {
     this.spinner.show();
-    this.http.get(httpUrls.NewsByDate).subscribe(result => {
+    this.http.get(httpUrls.NEWSBYDATE_CONST).subscribe(result => {
       this.newss = <News>result;
       this.spinner.hide();
     });
   }
   onSortView(): void {
     this.spinner.show();
-    this.http.get(httpUrls.NewsByView).subscribe(result => {
+    this.http.get(httpUrls.NEWSBYBVIEW_CONST).subscribe(result => {
       this.newss = <News>result;
       this.spinner.hide();
     });
   }
 
-  onSelect(categori: Catigories): void {
+  onSelect(categori: Categories): void {
     console.log(categori.id);
     this.spinner.show();
-    this.http.get(httpUrls.NewByCategory + categori.id).subscribe(result => {
-      this.newss = <News>result;
-      this.header = categori.name;
-      this.spinner.hide();
-    });
     this.http
-      .get(httpUrls.SubCategoryByCategory + categori.id)
+      .get(httpUrls.NEWSBYCATEGORY_CONST + categori.id)
+      .subscribe(result => {
+        this.newss = <News>result;
+        this.header = categori.name;
+        this.spinner.hide();
+      });
+    this.http
+      .get(httpUrls.SUBCATEGORYBYCATEGORY_CONST + categori.id)
       .subscribe(result => {
         this.subCatigori = <SubCatigories>result;
         this.showSubCatgory = true;

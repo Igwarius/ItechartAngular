@@ -1,14 +1,16 @@
 export const httpUrls = {
-  Login: "https://localhost:44333/api/User/SignIn",
-  AllNews: "https://localhost:44333/api/News/GetAllNews",
-  AllCategories: "https://localhost:44333/api/News/GetAllCategories",
-  NewsBySubCategory: "https://localhost:44333/api/News/GetNewsBySubCategory/",
-  NewsByDate: "https://localhost:44333/api/News/GetSortNews/date",
-  NewsByView: "https://localhost:44333/api/News/GetSortNews/view",
-  NewByCategory: "https://localhost:44333/api/News/GetNewsByCategory/",
-  SubCategoryByCategory:
+  LOGIN_CONST: "https://localhost:44333/api/User/SignIn",
+  ALLNEWS_CONST: "https://localhost:44333/api/News/GetAllNews",
+  ALLCATEGORIES_CONST: "https://localhost:44333/api/News/GetAllCategories",
+  NEWSBYSUBCATEGORY_CONST:
+    "https://localhost:44333/api/News/GetNewsBySubCategory/",
+  NEWSBYDATE_CONST: "https://localhost:44333/api/News/GetSortNews/0",
+  NEWSBYBVIEW_CONST: "https://localhost:44333/api/News/GetSortNews/1",
+  NEWSBYCATEGORY_CONST: "https://localhost:44333/api/News/GetNewsByCategory/",
+  SUBCATEGORYBYCATEGORY_CONST:
     "https://localhost:44333/api/News/GetSubCategoryByCategory/",
-  SubCategory: "https://localhost:44333/api/News/GetAllSubCategories",
-  AddNews: "https://localhost:44333/api/News/AddNews",
-  AddUser: "https://localhost:44333/api/User/AddUser"
+  SUBCATEGORY_CONST: "https://localhost:44333/api/News/GetAllSubCategories",
+  ADDNEWS_CONST: "https://localhost:44333/api/News/AddNews",
+  ADDUSER_CONST: "https://localhost:44333/api/User/AddUser",
+  USERBYID_CONST: "https://localhost:44333/api/News/GetNewsById/"
 };

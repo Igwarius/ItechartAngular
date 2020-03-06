@@ -20,15 +20,18 @@ import {
   FileDropDirective,
   FileUploader
 } from "ng2-file-upload";
+import { AuthInterceptor } from "src/app/AuthInterceptor";
 import { CommonModule } from "@angular/common";
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { UploadFotoComponent } from "./upload-foto/upload-foto.component";
+import { NewsDetailComponentComponent } from "./news-detail-component/news-detail-component.component";
 
 const appRoutes: Routes = [
   { path: "registration", component: RegistrationComponent },
   { path: "login", component: EnterComponent },
   { path: "news", component: NewsPageComponent },
-  { path: "upload", component: NewsUploadPageComponent }
+  { path: "upload", component: NewsUploadPageComponent },
+  { path: "curnews/:id", component: NewsDetailComponentComponent }
 ];
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
     NewsMdouleComponent,
     NewsUploadPageComponent,
     NewsPageComponent,
-    UploadFotoComponent
+    UploadFotoComponent,
+    NewsDetailComponentComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -59,7 +63,9 @@ const appRoutes: Routes = [
     NgxSpinnerModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
