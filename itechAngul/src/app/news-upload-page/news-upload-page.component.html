@@ -1,0 +1,38 @@
+<div class="product">
+  <div class="container">
+    <form [formGroup]="form">
+      <input class="name" formControlName="name" placeholder="Заголовок" />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+      >
+        Требуется Заголовок
+      </div>
+      <input class="text" formControlName="text" placeholder="Основной текст" />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['text'].invalid && form.controls['text'].touched"
+      >
+        Требуется содержание
+      </div>
+      <div class="form-group row">
+        <app-upload-foto [fileUrl]="form.get('image')"></app-upload-foto>
+      </div>
+      <select formControlName="subcategoryid" ng-model="selectedCatrgory">
+        <option
+          *ngFor="let subcatigori of subcatigories"
+          [ngValue]="subcatigori.id"
+          >{{ subcatigori.name }}</option
+        >
+      </select>
+      <button
+        type="submit"
+        class="create-product"
+        (click)="createNews()"
+        [disabled]="form.invalid"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+</div>

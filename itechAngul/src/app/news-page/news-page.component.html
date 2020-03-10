@@ -1,0 +1,23 @@
+<div class="newscont">
+  <div class="category" *ngFor="let catigori of catigories">
+    <h2 (click)="onSelect(catigori)">{{ catigori.name }}</h2>
+  </div>
+  <div class="sortContainer">
+    <h3 (click)="onSortDate()">Дата</h3>
+    <h3 (click)="onSortView()">Просмотры</h3>
+  </div>
+</div>
+<div hidden="{{ showSubCatgory }}" class="newscont">
+  <div class="category" *ngFor="let subcatigori of subCatigori">
+    <h2 (click)="onSubSelect(subcatigori)">{{ subcatigori.name }}</h2>
+  </div>
+</div>
+<h1>{{ header }}</h1>
+
+<div class="newscont">
+  <app-news-mdoule *ngFor="let news of newss" [news]="news">{{
+    news
+  }}</app-news-mdoule>
+</div>
+
+<ngx-spinner></ngx-spinner>

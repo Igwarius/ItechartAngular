@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+.category {
+  margin: 0px;
+  background-color: burlywood;
+}
+.newscont {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.sortContainer {
+  display: block; /* смещает только блоки */
+  margin-left: auto;
+}

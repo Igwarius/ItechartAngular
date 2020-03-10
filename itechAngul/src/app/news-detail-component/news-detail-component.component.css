@@ -1,0 +1,20 @@
+div {
+  border-style: solid;
+  width: 300px; /* Ширина области */
+  height: 200px; /* Высота области */
+  margin: 5px; /* Обнуляем отступы */
+  overflow: hidden; /* Прячем всё за пределами */
+
+  word-wrap: break-word;
+}
+h2 {
+  margin: 5px;
+  text-align: center;
+}
+div .imagec {
+  width: 100%; /* Ширина изображений */
+  margin: -30% 0 0 0; /* Сдвигаем вверх */
+}
+p {
+  margin: 5px;
+}
