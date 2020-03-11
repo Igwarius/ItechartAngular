@@ -22,18 +22,18 @@ export class NewsPageComponent implements OnInit {
     this.showSubCatgory = false;
     this.header = "Новости";
     this.spinner.show();
-    this.http.get(httpUrls.ALLNEWS_CONST).subscribe(result => {
+    this.http.get(httpUrls.ALL_NEWS).subscribe(result => {
       this.newss = <News>result;
       this.spinner.hide();
     });
-    this.http.get(httpUrls.ALLCATEGORIES_CONST).subscribe(result => {
+    this.http.get(httpUrls.ALL_CATEGORIES).subscribe(result => {
       this.catigories = <Categories>result;
     });
   }
   onSubSelect(subCatigori: SubCatigories): void {
     this.spinner.show();
     this.http
-      .get(httpUrls.NEWSBYSUBCATEGORY_CONST + subCatigori.id)
+      .get(httpUrls.NEWS_BY_SUBCATEGORY + subCatigori.id)
       .subscribe(result => {
         this.newss = <News>result;
         this.header = subCatigori.name;
@@ -42,14 +42,14 @@ export class NewsPageComponent implements OnInit {
   }
   onSortDate(): void {
     this.spinner.show();
-    this.http.get(httpUrls.NEWSBYDATE_CONST).subscribe(result => {
+    this.http.get(httpUrls.NEWS_BY_DATE).subscribe(result => {
       this.newss = <News>result;
       this.spinner.hide();
     });
   }
   onSortView(): void {
     this.spinner.show();
-    this.http.get(httpUrls.NEWSBYBVIEW_CONST).subscribe(result => {
+    this.http.get(httpUrls.NEWS_BY_VIEW).subscribe(result => {
       this.newss = <News>result;
       this.spinner.hide();
     });
@@ -58,15 +58,13 @@ export class NewsPageComponent implements OnInit {
   onSelect(categori: Categories): void {
     console.log(categori.id);
     this.spinner.show();
+    this.http.get(httpUrls.NEWS_BY_CATEGORY + categori.id).subscribe(result => {
+      this.newss = <News>result;
+      this.header = categori.name;
+      this.spinner.hide();
+    });
     this.http
-      .get(httpUrls.NEWSBYCATEGORY_CONST + categori.id)
-      .subscribe(result => {
-        this.newss = <News>result;
-        this.header = categori.name;
-        this.spinner.hide();
-      });
-    this.http
-      .get(httpUrls.SUBCATEGORYBYCATEGORY_CONST + categori.id)
+      .get(httpUrls.SUB_CATEGORY_BY_CATEGORY + categori.id)
       .subscribe(result => {
         this.subCatigori = <SubCatigories>result;
         this.showSubCatgory = true;

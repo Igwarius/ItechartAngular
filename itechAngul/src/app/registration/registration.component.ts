@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { User } from "src/app/user";
+import { User } from "src/app/Models/user";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import {
@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   addUser(): void {
     const user = <User>this.form.value;
 
-    this.http.post(httpUrls.AddUser, user).subscribe(
+    this.http.post(httpUrls.ADDUSER_CONST, user).subscribe(
       result => this.Navigate(),
       error => this.ErrorChech()
     );

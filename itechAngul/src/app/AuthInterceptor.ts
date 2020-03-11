@@ -6,7 +6,7 @@ import {
   HttpRequest
 } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Token } from "src/app/token";
+import { Token } from "src/app/Models/token";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -14,17 +14,13 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token: Token = localStorage.token;
-    console.log(token);
-    debugger;
-    if (!token) {
-      return next.handle(req);
-    }
-
     const req1 = req.clone({
-      headers: req.headers.set("access_token", `${token.RefreshToken}`)
+      headers: req.headers.set("access_token", `${localStorage.Access_token}`)
     });
-    console.log(req1);
-    return next.handle(req1);
+    const req2 = req1.clone({
+      headers: req1.headers.set("refreshtoken", `${localStorage.Refreshtoken}`)
+    });
+
+    return next.handle(req2);
   }
 }

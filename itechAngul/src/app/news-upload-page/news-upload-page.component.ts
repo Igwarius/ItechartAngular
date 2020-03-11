@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { News } from "src/app/Models/news";
-import { Catigories } from "src/app/Models/categories";
+import { Categories } from "src/app/Models/categories";
 import { SubCatigories } from "src/app/Models/subCatigories";
 import { ActivatedRoute } from "@angular/router";
 import { httpUrls } from "src/app/Constants/Urls";
@@ -14,7 +14,7 @@ import { httpUrls } from "src/app/Constants/Urls";
 export class NewsUploadPageComponent implements OnInit {
   public form: FormGroup;
   public news: News;
-  public catigories: Catigories;
+  public catigories: Categories;
   public subcatigories: SubCatigories;
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
@@ -26,7 +26,7 @@ export class NewsUploadPageComponent implements OnInit {
       subcategoryid: new FormControl(0)
     });
 
-    this.http.get(httpUrls.SubCategory).subscribe(result => {
+    this.http.get(httpUrls.SUB_CATEGORY).subscribe(result => {
       this.subcatigories = <SubCatigories>result;
     });
   }
@@ -36,6 +36,6 @@ export class NewsUploadPageComponent implements OnInit {
     news.viewers = 1;
     console.log(news);
     debugger;
-    this.http.post(httpUrls.AddNews, news).subscribe();
+    this.http.post(httpUrls.ADD_NEWS, news).subscribe();
   }
 }

@@ -23,9 +23,9 @@ export class NewsDetailComponentComponent implements OnInit {
   id: string;
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id");
-    console.log(httpUrls.USERBYID_CONST + this.id);
+    console.log(httpUrls.USER_BY_ID + this.id);
 
-    this.http.get(httpUrls.USERBYID_CONST + this.id).subscribe(result => {
+    this.http.get(httpUrls.USER_BY_ID + this.id).subscribe(result => {
       this.news = <News>result;
       this.spinner.hide();
     });
