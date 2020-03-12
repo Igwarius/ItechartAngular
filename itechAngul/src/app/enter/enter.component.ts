@@ -17,11 +17,10 @@ export class EnterComponent implements OnInit {
   token: Token;
   errorchk: boolean = false;
 
-  ErrorChech(): void {
+  errorChech(): void {
     this.errorchk = true;
-    debugger;
   }
-  Navigate(): void {
+  navigate(): void {
     if (this.errorchk == false) {
       this.router.navigate(["/news"]);
     }
@@ -29,19 +28,20 @@ export class EnterComponent implements OnInit {
 
   logUser(): void {
     const user = <User>this.form.value;
-
+    console.log(user);
+    debugger;
     this.http.post(httpUrls.SIGN_IN, user).subscribe(
       result => {
         this.token = <Token>result;
-
+        localStorage.setItem("Login", JSON.stringify(user.Login));
         localStorage.setItem("Access_token", JSON.stringify(this.token.token));
         localStorage.setItem(
           "Refreshtoken",
           JSON.stringify(this.token.refreshToken)
         );
       },
-      error => this.ErrorChech(),
-      () => this.Navigate()
+      error => this.errorChech(),
+      () => this.navigate()
     );
   }
 

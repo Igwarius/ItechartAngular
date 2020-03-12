@@ -12,5 +12,7 @@ export const httpUrls = {
   SUB_CATEGORY: domain.MAIN_DOMAIN + "api/News/SubCategories",
   ADD_NEWS: domain.MAIN_DOMAIN + "api/News/News",
   ADDUSER_CONST: domain.MAIN_DOMAIN + "api/User/User",
-  USER_BY_ID: domain.MAIN_DOMAIN + "api/News/News/"
+  NEWS_BY_ID: domain.MAIN_DOMAIN + "api/News/News/",
+  COMMENTS_FOR_NEWS: domain.MAIN_DOMAIN + "api/News/Comments/",
+  ADD_COMMENTS: domain.MAIN_DOMAIN + "api/News/Comment"
 };

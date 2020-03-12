@@ -22,14 +22,14 @@ export class RegistrationComponent implements OnInit {
     const user = <User>this.form.value;
 
     this.http.post(httpUrls.ADDUSER_CONST, user).subscribe(
-      result => this.Navigate(),
-      error => this.ErrorChech()
+      result => this.navigate(),
+      error => this.errorChech()
     );
   }
-  ErrorChech(): void {
+  errorChech(): void {
     this.errorchk = true;
   }
-  Navigate(): void {
+  navigate(): void {
     if (this.errorchk == false) {
       this.router.navigate(["/login"]);
     }

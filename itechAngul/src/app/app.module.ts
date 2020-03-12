@@ -25,6 +25,7 @@ import { CommonModule } from "@angular/common";
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { UploadFotoComponent } from "./upload-foto/upload-foto.component";
 import { NewsDetailComponentComponent } from "./news-detail-component/news-detail-component.component";
+import { CommentComponent } from './comment/comment.component';
 
 const appRoutes: Routes = [
   { path: "registration", component: RegistrationComponent },
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     NewsUploadPageComponent,
     NewsPageComponent,
     UploadFotoComponent,
-    NewsDetailComponentComponent
+    NewsDetailComponentComponent,
+    CommentComponent
   ],
   imports: [
     BrowserAnimationsModule,

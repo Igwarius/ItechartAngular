@@ -8,7 +8,11 @@
       >
         Требуется Заголовок
       </div>
-      <input class="text" formControlName="text" placeholder="Основной текст" />
+      <textarea
+        class="text"
+        formControlName="text"
+        placeholder="Основной текст"
+      ></textarea>
       <div
         class="alert alert-danger"
         *ngIf="form.controls['text'].invalid && form.controls['text'].touched"
