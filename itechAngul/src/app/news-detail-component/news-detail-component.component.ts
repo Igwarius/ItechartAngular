@@ -30,7 +30,7 @@ export class NewsDetailComponentComponent implements OnInit {
       text: new FormControl("")
     });
     this.id = this.route.snapshot.paramMap.get("id");
-
+    this.http.get(httpUrls.ADD_VIEWS + this.id).subscribe(result => {});
     this.http.get(httpUrls.NEWS_BY_ID + this.id).subscribe(result => {
       this.news = <News>result;
       this.spinner.hide();
@@ -47,7 +47,8 @@ export class NewsDetailComponentComponent implements OnInit {
     comment.newsId = +this.id;
     console.log(comment);
     debugger;
-    this.http.post(httpUrls.ADD_COMMENTS, comment).subscribe();
-    window.location.reload();
+    this.http.post(httpUrls.ADD_COMMENTS, comment).subscribe(() => {
+      window.location.reload();
+    });
   }
 }

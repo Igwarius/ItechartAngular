@@ -14,5 +14,6 @@ export const httpUrls = {
   ADDUSER_CONST: domain.MAIN_DOMAIN + "api/User/User",
   NEWS_BY_ID: domain.MAIN_DOMAIN + "api/News/News/",
   COMMENTS_FOR_NEWS: domain.MAIN_DOMAIN + "api/News/Comments/",
-  ADD_COMMENTS: domain.MAIN_DOMAIN + "api/News/Comment"
+  ADD_COMMENTS: domain.MAIN_DOMAIN + "api/News/Comment",
+  ADD_VIEWS: domain.MAIN_DOMAIN + "api/News/Views/"
 };
