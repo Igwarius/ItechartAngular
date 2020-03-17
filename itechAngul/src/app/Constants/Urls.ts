@@ -1,16 +1,19 @@
+import { domain } from "src/app/Constants/domain";
 export const httpUrls = {
-  LOGIN_CONST: "https://localhost:44333/api/User/SignIn",
-  ALLNEWS_CONST: "https://localhost:44333/api/News/GetAllNews",
-  ALLCATEGORIES_CONST: "https://localhost:44333/api/News/GetAllCategories",
-  NEWSBYSUBCATEGORY_CONST:
-    "https://localhost:44333/api/News/GetNewsBySubCategory/",
-  NEWSBYDATE_CONST: "https://localhost:44333/api/News/GetSortNews/0",
-  NEWSBYBVIEW_CONST: "https://localhost:44333/api/News/GetSortNews/1",
-  NEWSBYCATEGORY_CONST: "https://localhost:44333/api/News/GetNewsByCategory/",
-  SUBCATEGORYBYCATEGORY_CONST:
-    "https://localhost:44333/api/News/GetSubCategoryByCategory/",
-  SUBCATEGORY_CONST: "https://localhost:44333/api/News/GetAllSubCategories",
-  ADDNEWS_CONST: "https://localhost:44333/api/News/AddNews",
-  ADDUSER_CONST: "https://localhost:44333/api/User/AddUser",
-  USERBYID_CONST: "https://localhost:44333/api/News/GetNewsById/"
+  SIGN_IN: domain.MAIN_DOMAIN + "api/User/SignIn",
+  ALL_NEWS: domain.MAIN_DOMAIN + "api/News/News",
+  ALL_CATEGORIES: domain.MAIN_DOMAIN + "api/News/Categories",
+  NEWS_BY_SUBCATEGORY: domain.MAIN_DOMAIN + "api/News/NewsBySubCategory/",
+  NEWS_BY_DATE: domain.MAIN_DOMAIN + "api/News/SortNews/0",
+  NEWS_BY_VIEW: domain.MAIN_DOMAIN + "api/News/SortNews/1",
+  NEWS_BY_CATEGORY: domain.MAIN_DOMAIN + "api/News/NewsByCategory/",
+  SUB_CATEGORY_BY_CATEGORY:
+    domain.MAIN_DOMAIN + "api/News/SubCategoryByCategory/",
+  SUB_CATEGORY: domain.MAIN_DOMAIN + "api/News/SubCategories",
+  ADD_NEWS: domain.MAIN_DOMAIN + "api/News/News",
+  ADDUSER_CONST: domain.MAIN_DOMAIN + "api/User/User",
+  NEWS_BY_ID: domain.MAIN_DOMAIN + "api/News/News/",
+  COMMENTS_FOR_NEWS: domain.MAIN_DOMAIN + "api/News/Comments/",
+  ADD_COMMENTS: domain.MAIN_DOMAIN + "api/News/Comment",
+  ADD_VIEWS: domain.MAIN_DOMAIN + "api/News/Views/"
 };

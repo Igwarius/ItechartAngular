@@ -1,0 +1,12 @@
+.container {
+  border-style: solid;
+  width: 300px; /* Ширина области */
+  height: 50px; /* Высота области */
+  margin: 0; /* Обнуляем отступы */
+  overflow: hidden; /* Прячем всё за пределами */
+
+  word-wrap: break-word;
+}
+.header {
+  margin: 0px;
+}

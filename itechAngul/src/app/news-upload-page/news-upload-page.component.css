@@ -1,0 +1,6 @@
+.text {
+  display: block; /* смещает только блоки */
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+}
