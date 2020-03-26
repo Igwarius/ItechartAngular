@@ -20,13 +20,13 @@
         Требуется содержание
       </div>
       <div class="form-group row">
-        <app-upload-foto [fileUrl]="form.get('image')"></app-upload-foto>
+        <app-upload-photo [fileUrl]="form.get('image')"></app-upload-photo>
       </div>
       <select formControlName="subcategoryid" ng-model="selectedCatrgory">
         <option
-          *ngFor="let subcatigori of subcatigories"
-          [ngValue]="subcatigori.id"
-          >{{ subcatigori.name }}</option
+          *ngFor="let subcategori of subcategories"
+          [ngValue]="subcategori.id"
+          >{{ subcategori.name }}</option
         >
       </select>
       <button

@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   addUser(): void {
     const user = <User>this.form.value;
 
-    this.http.post(httpUrls.ADDUSER_CONST, user).subscribe(
+    this.http.post(httpUrls.ADD_USER_CONST, user).subscribe(
       result => this.navigate(),
       error => this.errorChech()
     );

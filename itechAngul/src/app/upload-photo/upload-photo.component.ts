@@ -6,13 +6,14 @@ import {
 } from "ng2-file-upload";
 import { Cloudinary } from "@cloudinary/angular-5.x";
 import { FormControl } from "@angular/forms";
+import { httpUrls } from '../Constants/Urls';
 
 @Component({
-  selector: "app-upload-foto",
-  templateUrl: "./upload-foto.component.html",
-  styleUrls: ["./upload-foto.component.scss"]
+  selector: "app-upload-photo",
+  templateUrl: "./upload-photo.component.html",
+  styleUrls: ["./upload-photo.component.scss"]
 })
-export class UploadFotoComponent implements OnInit {
+export class UploadPhotoComponent implements OnInit {
   constructor(private cloudinary: Cloudinary) {}
 
   @Input() fileUrl: FormControl;
@@ -25,7 +26,7 @@ export class UploadFotoComponent implements OnInit {
   ngOnInit() {
     if (!this.fileUrl.value) {
       this.fileUrl.setValue(
-        "https://res.cloudinary.com/dmk0cb1qj/image/upload/v1582119575/uig51ogcbgugn0i347p5.jpg"
+        httpUrls.SART_PIC
       );
     }
     const uploaderOptions: FileUploaderOptions = {

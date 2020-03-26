@@ -1,7 +1,7 @@
-export class SubCatigories {
+export class SubCategories {
   constructor(
     public id: number,
     public name: string,
-    public categoryID: Number
+    public categoryId: Number
   ) {}
 }

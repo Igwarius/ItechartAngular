@@ -1,3 +1,5 @@
+import {Comment}from './comment'
+import { from } from 'rxjs';
 export class News {
   constructor(
     public id: number,
@@ -5,6 +7,7 @@ export class News {
     public image: string,
     public text: string,
     public viewers: number,
-    public categoryID: number
+    public categoryId: number,
+   public coment:Comment
   ) {}
 }

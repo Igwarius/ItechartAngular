@@ -1,6 +1,6 @@
 <div class="newscont">
-  <div class="category" *ngFor="let catigori of catigories">
-    <h2 (click)="onSelect(catigori)">{{ catigori.name }}</h2>
+  <div class="category" *ngFor="let categori of categories">
+    <h2 (click)="onSelect(categori)">{{ categori.name }}</h2>
   </div>
   <div class="sortContainer">
     <h3 (click)="onSortDate()">Дата</h3>
@@ -8,14 +8,14 @@
   </div>
 </div>
 <div hidden="{{ showSubCatgory }}" class="newscont">
-  <div class="category" *ngFor="let subcatigori of subCatigori">
-    <h2 (click)="onSubSelect(subcatigori)">{{ subcatigori.name }}</h2>
+  <div class="category" *ngFor="let subcategori of subCategori">
+    <h2 (click)="onSubSelect(subcategori)">{{ subcategori.name }}</h2>
   </div>
 </div>
 <h1>{{ header }}</h1>
 
 <div class="newscont">
-  <app-news-mdoule *ngFor="let news of newss" [news]="news">{{
+  <app-news-mdoule *ngFor="let news of newses" [news]="news">{{
     news
   }}</app-news-mdoule>
 </div>

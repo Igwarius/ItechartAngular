@@ -23,7 +23,7 @@ import {
 import { AuthInterceptor } from "src/app/AuthInterceptor";
 import { CommonModule } from "@angular/common";
 import { AngularFileUploaderModule } from "angular-file-uploader";
-import { UploadFotoComponent } from "./upload-foto/upload-foto.component";
+import { UploadPhotoComponent } from "./upload-photo/upload-photo.component";
 import { NewsDetailComponentComponent } from "./news-detail-component/news-detail-component.component";
 import { CommentComponent } from './comment/comment.component';
 
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     NewsMdouleComponent,
     NewsUploadPageComponent,
     NewsPageComponent,
-    UploadFotoComponent,
+    UploadPhotoComponent,
     NewsDetailComponentComponent,
     CommentComponent
   ],

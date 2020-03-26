@@ -17,7 +17,7 @@ export class EnterComponent implements OnInit {
   token: Token;
   errorchk: boolean = false;
 
-  errorChech(): void {
+  errorCheck(): void {
     this.errorchk = true;
   }
   navigate(): void {
@@ -28,19 +28,17 @@ export class EnterComponent implements OnInit {
 
   logUser(): void {
     const user = <User>this.form.value;
-    console.log(user);
-    debugger;
     this.http.post(httpUrls.SIGN_IN, user).subscribe(
       result => {
         this.token = <Token>result;
-        localStorage.setItem("Login", JSON.stringify(user.Login));
+        localStorage.setItem("Login", JSON.stringify(user.login));
         localStorage.setItem("Access_token", JSON.stringify(this.token.token));
         localStorage.setItem(
           "Refreshtoken",
           JSON.stringify(this.token.refreshToken)
         );
       },
-      error => this.errorChech(),
+      error => this.errorCheck(),
       () => this.navigate()
     );
   }
