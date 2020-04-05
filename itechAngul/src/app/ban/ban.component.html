@@ -1,0 +1,34 @@
+<div class="globalcont">
+<div class="container">
+<form [formGroup]="form">
+<select formControlName="login" ng-model="selectedCatrgory">
+  <option value="" disabled selected>User</option>
+  <option
+      *ngFor="let user of users"
+      [ngValue]="user.login"
+      >{{ user.login }}</option
+    >
+  </select>
+  <select  formControlName="reason" ng-model="selectedCatrgory"  >
+    <option value="" disabled selected>reason</option>
+    <option>mat</option>
+    <option>sex</option>
+     <option>drug</option>
+  </select>
+  <select formControlName="period" ng-model="selectedCatrgory" >
+    <option value="" disabled selected>period</option>
+    <option>1</option>
+    <option>7</option> 
+    <option>14</option>
+  </select>
+  </form>
+<button
+        type="submit"
+        class="btn btn-default"
+        (click)="banUser()"
+        [disabled]="form.invalid"
+      >
+        Ban
+      </button>
+    </div>
+  </div>

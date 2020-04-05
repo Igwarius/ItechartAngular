@@ -1,4 +1,4 @@
-<div class="product">
+<div class="globalcont">
   <div class="container">
     <form [formGroup]="form">
       <input class="name" formControlName="name" placeholder="Заголовок" />
@@ -23,6 +23,7 @@
         <app-upload-photo [fileUrl]="form.get('image')"></app-upload-photo>
       </div>
       <select formControlName="subcategoryid" ng-model="selectedCatrgory">
+        <option value="" disabled selected>Subcategori</option>
         <option
           *ngFor="let subcategori of subcategories"
           [ngValue]="subcategori.id"
@@ -31,7 +32,7 @@
       </select>
       <button
         type="submit"
-        class="create-product"
+        class="btn btn-default"
         (click)="createNews()"
         [disabled]="form.invalid"
       >

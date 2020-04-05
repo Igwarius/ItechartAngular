@@ -17,5 +17,10 @@ export const httpUrls = {
   ADD_COMMENTS: domain.MAIN_DOMAIN + "news/comment",
   ADD_VIEWS: domain.MAIN_DOMAIN + "news/views/",
   FULL_NEWS: domain.MAIN_DOMAIN+"news/full-news/",
+  ALL_USERS: domain.MAIN_DOMAIN+"user/users",
+  BAN_USER: domain.MAIN_DOMAIN+"user/ban-user",
+  ARCHIVED_NEWS:domain.MAIN_DOMAIN+"news/archived-news/",
+  GET_LIKE:domain.MAIN_DOMAIN+"news/like/",
+  POST_LIKE:domain.MAIN_DOMAIN+"news/liked/",
   SART_PIC:"https://res.cloudinary.com/dmk0cb1qj/image/upload/v1582119575/uig51ogcbgugn0i347p5.jpg"
 };

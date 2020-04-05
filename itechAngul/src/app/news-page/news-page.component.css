@@ -2,14 +2,22 @@ h1 {
   text-align: center;
 }
 .category {
-  margin: 0px;
-  background-color: burlywood;
+  margin: px;
+ margin-left:5px ;
 }
 .newscont {
+  margin: 0px;
   display: flex;
   flex-wrap: nowrap;
 }
 .sortContainer {
   display: block; /* смещает только блоки */
   margin-left: auto;
+}
+.category:hover{
+  color: red;
+}
+
+.sortParam:hover{
+  color: red;
 }

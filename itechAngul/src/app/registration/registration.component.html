@@ -1,8 +1,12 @@
-<h1>Регистраця</h1>
-<form class="register-form" [formGroup]="form">
-  <div class="box">
-    <div>
+
+<div class="globalcont">
+  <div class="container">
+
+
+    <h1>Регистрация</h1>
+    <form class="register-form" [formGroup]="form">
       <input
+      class="form-control"
         minlength="4"
         maxlength="15"
         type="login"
@@ -16,9 +20,10 @@
       >
         Логин должен быть не менее 3 символов
       </div>
-    </div>
-    <div>
+    
+    
       <input
+      class="form-control"
         type="password"
         name="password"
         minlength="8"
@@ -34,11 +39,11 @@
       >
         Пароль должен быть не менее 8 символов
       </div>
-    </div>
+    
     <div *ngIf="errorchk">
       Имя пользователя занято
     </div>
-    <div>
+   
       <button
         class="btn btn-default"
         (click)="addUser()"
@@ -46,9 +51,11 @@
       >
         Добавить
       </button>
+   
+    </form>
     </div>
   </div>
-</form>
+
 <tr *ngFor="let user of users">
   <td>{{ user.login }}</td>
 </tr>

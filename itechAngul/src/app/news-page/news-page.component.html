@@ -1,15 +1,15 @@
 <div class="newscont">
   <div class="category" *ngFor="let categori of categories">
-    <h2 (click)="onSelect(categori)">{{ categori.name }}</h2>
+    <h3 (click)="onSelect(categori)">{{ categori.name }}</h3>
   </div>
   <div class="sortContainer">
-    <h3 (click)="onSortDate()">Дата</h3>
-    <h3 (click)="onSortView()">Просмотры</h3>
+    <h3 class="sortParam" (click)="onSortDate()">Дата</h3>
+    <h3 class="sortParam" (click)="onSortView()">Просмотры</h3>
   </div>
 </div>
-<div hidden="{{ showSubCatgory }}" class="newscont">
+<div *ngIf="showSubCatgory" class="newscont">
   <div class="category" *ngFor="let subcategori of subCategori">
-    <h2 (click)="onSubSelect(subcategori)">{{ subcategori.name }}</h2>
+    <h3 (click)="onSubSelect(subcategori)">{{ subcategori.name }}</h3>
   </div>
 </div>
 <h1>{{ header }}</h1>

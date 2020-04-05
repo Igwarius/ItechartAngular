@@ -1,0 +1,23 @@
+<div class="globalcont">
+  <div class="container">
+<form [formGroup]="form">
+    <select formControlName="id" ng-model="selectedCatrgory">
+      <option value="" disabled selected>News header</option>
+        <option
+          *ngFor="let news of newses"
+          [ngValue]="news.id"
+          >{{ news.name }}</option
+        >
+      </select>
+     
+      </form>
+    <button
+            type="submit"
+            class="btn btn-default"
+            (click)="archiveNews()"
+            [disabled]="form.invalid"
+          >
+            Archive
+          </button>
+    </div>
+</div>

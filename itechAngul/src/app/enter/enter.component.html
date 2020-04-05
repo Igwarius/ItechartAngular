@@ -1,21 +1,24 @@
+<div class="globalcont">
+<div class="container">
 <h1>Вход</h1>
-<div>
+
   <form class="login-form" [formGroup]="form">
-    <div class="box">
-      <div>
-        <input placeholder="Логин" name="Login" formControlName="Login" />
+   
+      
+        <input class="form-control" placeholder="Логин" name="login" formControlName="login" />
 
         <div
           class="alert alert-danger"
           *ngIf="
-            form.controls['Login'].invalid && form.controls['Login'].touched
+            form.controls['login'].invalid && form.controls['login'].touched
           "
         >
           Требуется логин
         </div>
-      </div>
-      <div>
+      
+      
         <input
+        class="form-control"
           placeholder="Пароль"
           name="password"
           formControlName="password"
@@ -31,19 +34,25 @@
           Требуется пароль
         </div>
 
-        <div *ngIf="errorchk">
+        <div *ngIf="errorchk"    class="alert alert-danger">
           Неверые данные
         </div>
-      </div>
-      <div>
+      
+      
         <button
+
+        
           class="btn btn-default"
           (click)="logUser()"
           [disabled]="form.invalid"
         >
           Вход
         </button>
-      </div>
-    </div>
+      
+        
+      
+      
+   
   </form>
+</div>
 </div>

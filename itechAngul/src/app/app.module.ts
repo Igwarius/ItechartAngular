@@ -26,13 +26,20 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { UploadPhotoComponent } from "./upload-photo/upload-photo.component";
 import { NewsDetailComponentComponent } from "./news-detail-component/news-detail-component.component";
 import { CommentComponent } from './comment/comment.component';
+import { BanComponent } from './ban/ban.component';
+import { ArchiveComponent } from './archive/archive.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
+
 
 const appRoutes: Routes = [
   { path: "registration", component: RegistrationComponent },
   { path: "login", component: EnterComponent },
   { path: "news", component: NewsPageComponent },
   { path: "upload", component: NewsUploadPageComponent },
-  { path: "curnews/:id", component: NewsDetailComponentComponent }
+  { path: "curnews/:id", component: NewsDetailComponentComponent },
+  {path: "ban",component:BanComponent},
+  {path: "archive",component:ArchiveComponent}
 ];
 @NgModule({
   declarations: [
@@ -44,7 +51,10 @@ const appRoutes: Routes = [
     NewsPageComponent,
     UploadPhotoComponent,
     NewsDetailComponentComponent,
-    CommentComponent
+    CommentComponent,
+    BanComponent,
+    ArchiveComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -53,6 +63,7 @@ const appRoutes: Routes = [
     FileUploadModule,
     CommonModule,
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
@@ -61,7 +72,8 @@ const appRoutes: Routes = [
       upload_preset: "nc0gqqok"
     }),
     ReactiveFormsModule,
-
+   
+  
     NgxSpinnerModule
   ],
   exports: [RouterModule],

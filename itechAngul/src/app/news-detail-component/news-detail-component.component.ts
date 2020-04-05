@@ -11,6 +11,7 @@ import { Comment } from "src/app/Models/comment";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { NewsWithComments } from '../Models/newsWithComments';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
+import * as jwt_decode from 'jwt-decode';
 @Component({
   selector: "app-news-detail-component",
   templateUrl: "./news-detail-component.component.html",
@@ -42,8 +43,10 @@ export class NewsDetailComponentComponent implements OnInit {
   }
   createComment() {
     const comment = <Comment>this.form.value;
-    comment.likes = 0;
-    comment.login = localStorage.Login;
+    comment.likesCount = 0;
+    var decoded =  jwt_decode(localStorage.Access_token); 
+   
+    comment.login = decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
     comment.newsId = +this.id;
     this.http.post(httpUrls.ADD_COMMENTS, comment).subscribe(() => {
       window.location.reload();

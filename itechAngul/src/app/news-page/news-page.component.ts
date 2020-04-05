@@ -68,11 +68,13 @@ export class NewsPageComponent implements OnInit {
       this.header = categori.name;
       this.spinner.hide();
     });
+    
     this.http
       .get(httpUrls.SUB_CATEGORY_BY_CATEGORY + categori.id)
       .subscribe(result => {
         this.subCategori = <SubCategories>result;
         this.showSubCatgory = true;
+        
         this.spinner.hide();
       });
   }

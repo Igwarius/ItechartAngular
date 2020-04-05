@@ -28,9 +28,15 @@ export class EnterComponent implements OnInit {
 
   logUser(): void {
     const user = <User>this.form.value;
+    console.log(user)
+    console.log(user.login)
+    debugger;
     this.http.post(httpUrls.SIGN_IN, user).subscribe(
       result => {
         this.token = <Token>result;
+        console.log(user)
+        console.log(user.login)
+        debugger;
         localStorage.setItem("Login", JSON.stringify(user.login));
         localStorage.setItem("Access_token", JSON.stringify(this.token.token));
         localStorage.setItem(
@@ -47,7 +53,7 @@ export class EnterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      Login: new FormControl("", [Validators.required]),
+      login: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required])
     });
   }

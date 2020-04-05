@@ -4,6 +4,6 @@ export class Comment {
     public login: string,
     public newsId: number,
     public text: string,
-    public likes: number
+    public likesCount: number
   ) {}
 }
