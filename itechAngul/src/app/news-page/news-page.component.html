@@ -8,15 +8,15 @@
   </div>
 </div>
 <div *ngIf="showSubCatgory" class="newscont">
-  <div class="category" *ngFor="let subcategori of subCategori">
-    <h3 (click)="onSubSelect(subcategori)">{{ subcategori.name }}</h3>
+  <div class="category" *ngFor="let subcategory of subCategory">
+    <h3 (click)="onSubSelect(subcategory)">{{ subcategory.name }}</h3>
   </div>
 </div>
 <h1>{{ header }}</h1>
 
 <div class="newscont">
-  <app-news-mdoule *ngFor="let news of newses" [news]="news">{{
-    news
+  <app-news-mdoule *ngFor="let item of news" [news]="item">{{
+    item
   }}</app-news-mdoule>
 </div>
 

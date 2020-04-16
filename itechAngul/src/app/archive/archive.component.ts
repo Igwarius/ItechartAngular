@@ -11,6 +11,7 @@ import{BannedUser} from "src/app/Models/bannedUser"
 import { from } from 'rxjs';
 import * as jwt_decode from 'jwt-decode';
 import { Router } from "@angular/router";
+import{differentConsts} from 'src/app/Constants/differentConsts'
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
@@ -35,13 +36,12 @@ archiveNews():void{
       catch{
         this.router.navigate(["/news"]);
       }
-      if ((decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']=="User"))
+      if ((decoded[differentConsts.ROLE_FROM_TOKEN]=="User"))
    
       this.router.navigate(["/news"]);
  
     var decoded =  jwt_decode(localStorage.Access_token); 
-    console.log(decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'])
-    if (decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']=="User")
+    if (decoded[differentConsts.ROLE_FROM_TOKEN]=="User")
     this.router.navigate(["/news"]);
 
     this.form = new FormGroup({
@@ -51,6 +51,5 @@ archiveNews():void{
     this.http.get(httpUrls.ADD_NEWS).subscribe(result => {
       this.newses = <News>result;
     });
-  
   }
 }

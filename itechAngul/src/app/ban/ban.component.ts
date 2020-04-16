@@ -11,6 +11,7 @@ import{BannedUser} from "src/app/Models/bannedUser"
 import { from } from 'rxjs';
 import * as jwt_decode from 'jwt-decode';
 import { Router } from "@angular/router";
+import { differentConsts } from 'src/app/Constants/differentConsts' 
 @Component({
   selector: 'app-ban',
   templateUrl: './ban.component.html',
@@ -24,10 +25,7 @@ export class BanComponent implements OnInit {
 banUser():void{
   const bannedUser = <BannedUser>this.form.value;
   bannedUser.period=+bannedUser.period 
-  console.log(bannedUser);
-  debugger;
   this.http.post(httpUrls.BAN_USER ,bannedUser).subscribe();
-
 }
   ngOnInit(): void { 
     try{
@@ -36,7 +34,7 @@ banUser():void{
     catch{
       this.router.navigate(["/news"]);
     }
-    if ((decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']=="User"))
+    if ((decoded[differentConsts.ROLE_FROM_TOKEN]=="User"))
  
     this.router.navigate(["/news"]);
     this.form = new FormGroup({
@@ -48,5 +46,4 @@ banUser():void{
       this.users = <User>result;
     });
   }
-
 }

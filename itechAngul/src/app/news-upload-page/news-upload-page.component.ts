@@ -8,6 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 import { httpUrls } from "src/app/Constants/Urls";
 import * as jwt_decode from 'jwt-decode';
 import { Router } from "@angular/router";
+import {differentConsts} from "src/app/Constants/differentConsts"
 @Component({
   selector: "app-news-upload-page",
   templateUrl: "./news-upload-page.component.html",
@@ -22,17 +23,16 @@ export class NewsUploadPageComponent implements OnInit {
 
   ngOnInit() {
     try{
-      var decoded =  jwt_decode(localStorage.Access_token); 
+      var decoded = jwt_decode(localStorage.Access_token); 
       }
       catch{
-        this.router.navigate(["/news"]);
+      this.router.navigate(["/news"]);
       }
-      if ((decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']=="User"))
+      if ((decoded[differentConsts.ROLE_FROM_TOKEN]=="User"))
    
       this.router.navigate(["/news"]);
     var decoded =  jwt_decode(localStorage.Access_token); 
-    console.log(decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'])
-    if (decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']=="User")
+    if (decoded[differentConsts.ROLE_FROM_TOKEN]=="User")
     this.router.navigate(["/news"]);
     this.form = new FormGroup({
       name: new FormControl("", [Validators.required]),

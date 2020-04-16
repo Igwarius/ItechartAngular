@@ -1,3 +1,3 @@
 export class Token {
-  constructor(public refreshToken: string, public token: string) {}
+	constructor(public refreshToken: string, public token: string) {}
 }

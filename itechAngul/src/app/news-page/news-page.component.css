@@ -1,23 +1,23 @@
 h1 {
-  text-align: center;
+	text-align: center;
 }
 .category {
-  margin: px;
- margin-left:5px ;
+	margin: px;
+	margin-left: 5px;
 }
 .newscont {
-  margin: 0px;
-  display: flex;
-  flex-wrap: nowrap;
+	margin: 0px;
+	display: flex;
+	flex-wrap: nowrap;
 }
 .sortContainer {
-  display: block; /* смещает только блоки */
-  margin-left: auto;
+	display: block; /* смещает только блоки */
+	margin-left: auto;
 }
-.category:hover{
-  color: red;
+.category:hover {
+	color: red;
 }
 
-.sortParam:hover{
-  color: red;
+.sortParam:hover {
+	color: red;
 }

@@ -1,12 +1,10 @@
 <h3 class="header">{{ comment.login }}</h3>
 <div class="container">
   <p class="text">{{ comment.text }}</p>
-
   <div 
   type="submit"
   [ngClass]="(isLiked)? 'create-product1':'create-product'" 
   (click)="(isLiked)? unLiked(): liked()">
-  
   &hearts;
   </div>
 </div>

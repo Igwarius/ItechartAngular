@@ -22,5 +22,7 @@ export const httpUrls = {
   ARCHIVED_NEWS:domain.MAIN_DOMAIN+"news/archived-news/",
   GET_LIKE:domain.MAIN_DOMAIN+"news/like/",
   POST_LIKE:domain.MAIN_DOMAIN+"news/liked/",
-  SART_PIC:"https://res.cloudinary.com/dmk0cb1qj/image/upload/v1582119575/uig51ogcbgugn0i347p5.jpg"
+  NEWS_WITH_CATEGORY:domain.MAIN_DOMAIN+ "news/news-with-category",
+  CLOUDINARY: "https://api.cloudinary.com/v1_1/",
+  UPLOAD_PICTURE:"https://res.cloudinary.com/dmk0cb1qj/image/upload/v1582119575/uig51ogcbgugn0i347p5.jpg"
 };

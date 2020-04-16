@@ -1,14 +1,12 @@
-.container{
-   
-
-    background-color: burlywood;
-    display: flex;
-    flex-direction:row;
-    justify-content:space-between;
-    max-width: 1920px;
-    width: 100%;
-    margin: 0px;
+.container {
+	background-color: burlywood;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 1920px;
+	width: 100%;
+	margin: 0px;
 }
-.click:hover{
-    color: red;
+.click:hover {
+	color: red;
 }
