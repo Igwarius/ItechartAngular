@@ -1,0 +1,54 @@
+
+<div class="globalcont">
+  <div class="container">
+    <h1>Регистрация</h1>
+    <form class="register-form" [formGroup]="form">
+      <input
+      class="form-control"
+        minlength="4"
+        maxlength="15"
+        type="login"
+        name="logn"
+        formControlName="login"
+        placeholder="Логин"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['login'].invalid && form.controls['login'].touched"
+      >
+        Логин должен быть не менее 3 символов
+      </div>
+      <input
+      class="form-control"
+        type="password"
+        name="password"
+        minlength="8"
+        maxlength="20"
+        formControlName="password"
+        placeholder="Пароль"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          form.controls['password'].invalid && form.controls['password'].touched
+        "
+      >
+        Пароль должен быть не менее 8 символов
+      </div>
+    <div *ngIf="errorcheck">
+      Имя пользователя занято
+    </div>
+      <button
+        class="btn btn-default"
+        (click)="addUser()"
+        [disabled]="form.invalid"
+      >
+        Добавить
+      </button>
+   </form>
+    </div>
+  </div>
+
+<tr *ngFor="let user of users">
+  <td>{{ user.login }}</td>
+</tr>

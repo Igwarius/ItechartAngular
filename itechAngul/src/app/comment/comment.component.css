@@ -1,0 +1,26 @@
+.container {
+	border-style: solid;
+	width: 300px; /* Ширина области */
+	margin: 0; /* Обнуляем отступы */
+	overflow: hidden; /* Прячем всё за пределами */
+	position: relative;
+	word-wrap: break-word;
+}
+.header {
+	margin: 0px;
+}
+.create-product {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: white;
+}
+.create-product1 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: red;
+}
+.text {
+	padding: 10px;
+}

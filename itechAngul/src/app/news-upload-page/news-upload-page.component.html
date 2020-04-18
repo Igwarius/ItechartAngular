@@ -1,0 +1,43 @@
+<div class="globalcont">
+  <div class="container">
+    <form [formGroup]="form">
+      <input class="name" formControlName="name" placeholder="Заголовок" />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+      >
+        Требуется Заголовок
+      </div>
+      <textarea
+        class="text"
+        formControlName="text"
+        placeholder="Основной текст"
+      ></textarea>
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls['text'].invalid && form.controls['text'].touched"
+      >
+        Требуется содержание
+      </div>
+      <div class="form-group row">
+        <app-upload-photo [fileUrl]="form.get('image')"></app-upload-photo>
+      </div>
+      <select formControlName="subcategoryid" ng-model="selectedCatrgory">
+        <option value="" disabled selected>Subcategori</option>
+        <option
+          *ngFor="let subcategori of subcategories"
+          [ngValue]="subcategori.id"
+          >{{ subcategori.name }}</option
+        >
+      </select>
+      <button
+        type="submit"
+        class="btn btn-default"
+        (click)="createNews()"
+        [disabled]="form.invalid"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+</div>

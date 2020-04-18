@@ -1,0 +1,12 @@
+<h1>{{ news[0].name }}</h1>
+<cl-image class="imagec" public-id="{{ news[0].image }}"> </cl-image>
+<p>{{ news[0].text }}</p>
+<app-comment *ngFor="let curcomment of comment" [comment]="curcomment"></app-comment>
+<form [formGroup]="form">
+  <textarea
+    class="text"
+    formControlName="text"
+    placeholder="Основной текст"
+  ></textarea>
+</form>
+<button class="btn btn-default" (click)="createComment()">Оставить коммент</button>
